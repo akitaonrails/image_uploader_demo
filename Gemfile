@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'figaro'
 gem 'slim-rails'
+gem 'purecss-rails'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
