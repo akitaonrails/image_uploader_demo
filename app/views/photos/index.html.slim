@@ -11,7 +11,7 @@ section.post
               li = msg
         fieldset.pure-group
           = form.text_field :comment, class: "pure-input-rounded"
-          = form.hidden_field :remote_image_url
+          = form.hidden_field :original_image_url
           label.pure-button for="file"
             | Choose Image
           = form.submit "Submit Comment", class: "pure-button pure-button-primary"
@@ -33,7 +33,7 @@ section.post-description
         - if photo.image_processing
           = image_tag "animation_processing.gif"
         - else
-          = image_tag photo.image.url(:normal)
+          = image_tag photo.image.url(:normal) rescue image_tag("animation_processing.gif")
         br
           p
             = "by #{photo.user.name} at #{photo.created_at.to_s(:short)}"

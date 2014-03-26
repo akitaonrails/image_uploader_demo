@@ -66,8 +66,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    carrierwave_backgrounder (0.3.0)
-      carrierwave (~> 0.5)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.1.0)
@@ -332,7 +330,6 @@ DEPENDENCIES
   binding_of_caller
   capybara
   carrierwave
-  carrierwave_backgrounder
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner (= 1.0.1)

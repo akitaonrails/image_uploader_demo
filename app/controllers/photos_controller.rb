@@ -6,12 +6,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = current_user.photos.build
-    if params[:url]
-      @photo.remote_image_url = params[:url]
-    else
-      @photo.attributes = params[:photo]
-    end
+    @photo = current_user.photos.build(params[:photo])
     if @photo.save
       redirect_to root_url
     else

@@ -6,7 +6,6 @@ describe ImageUploader do
   before do
     ImageUploader.enable_processing = true
     @photo = Photo.new.tap do |photo|
-      photo.process_image_upload = true
       photo.attributes = attributes_for(:photo)
       photo.save
     end

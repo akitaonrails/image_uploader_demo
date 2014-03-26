@@ -12,7 +12,7 @@ jQuery(function() {
   });
 
   s3_uploader.bind("s3_upload_complete", function(e, content) {
-    $(".formtastic.photo input[id=photo_remote_image_url]").val(content.url);
+    $(".formtastic.photo input[id=photo_original_image_url]").val(content.url);
     $(".formtastic.photo input[type=submit]").show();
   });
 });

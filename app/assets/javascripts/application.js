@@ -26,7 +26,7 @@ jQuery(function() {
   });
 
   s3_uploader.bind("s3_upload_complete", function(e, content) {
-    $("#new_photo input[id=photo_remote_image_url]").val(content.url);
+    $("#new_photo input[id=photo_original_image_url]").val(content.url);
     $("#new_photo input[type=submit]").show();
   });
 });
