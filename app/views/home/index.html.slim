@@ -1,1 +1,17 @@
-h3 Home
+section.post
+  header.post-header
+    - if current_user.present?
+      = form_for @photo, :html => {:multipart => true} do |form|
+        = form.file_field :image
+        = form.submit "Upload"
+
+section.post-description
+  ul.nav-list
+    - @photos.each do |photo|
+      li.nav-item
+        = image_tag photo.image.url(:normal)
+        br
+          = "by #{photo.user.name} at #{photo.created_at.to_s(:short)}"
+
+  p
+    = paginate @photos

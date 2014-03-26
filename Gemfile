@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '3.2.17'
-gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -12,6 +11,9 @@ gem 'devise'
 gem 'figaro'
 gem 'slim-rails'
 gem 'purecss-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'kaminari'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
@@ -20,11 +22,15 @@ group :development do
   gem 'rails_layout'
 end
 group :development, :test do
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'thin'
+  gem 'pry-rails'
 end
 group :production do
+  gem 'pg'
+  gem 'rails_12factor'
   gem 'unicorn'
 end
 group :test do
@@ -33,4 +39,6 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
   gem 'launchy'
+  gem 'factory_girl'
+  gem 'shoulda-matchers'
 end
