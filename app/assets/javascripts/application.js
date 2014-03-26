@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require s3_direct_upload
 //= require_tree .
+jQuery(function() {
+  return $("#s3-uploader").S3Uploader();
+});

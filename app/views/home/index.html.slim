@@ -1,9 +1,14 @@
 section.post
   header.post-header
     - if current_user.present?
-      = form_for @photo, :html => {:multipart => true} do |form|
-        = form.file_field :image
-        = form.submit "Upload"
+      = s3_uploader_form callback_url: photos_path, post: root_url, as: "photo[image_url]", max_file_size: 5.megabytes, id: "s3-uploader"
+        = file_field_tag :file
+
+      script id="template-upload" type="text/x-tmpl"
+        | <div id="file-{%=o.unique_id%}" class="upload">
+        |   {%=o.name%}
+        |   <div class="progress"><div class="bar" style="width: 0%"></div></div>
+        | </div>
 
 section.post-description
   ul.nav-list
