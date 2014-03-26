@@ -190,3 +190,9 @@ h3 {
     }
 }
 
+form#s3-uploader {
+  position: absolute;
+  top: 500px;
+  left: -9999px;
+}
+

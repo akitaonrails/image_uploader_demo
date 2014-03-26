@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HomeController do
+describe PhotosController do
   render_views
 
   describe "GET 'index'" do
@@ -20,3 +20,4 @@ describe HomeController do
   end
 
 end
+

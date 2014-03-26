@@ -1,0 +1,45 @@
+section.post
+  header.post-header
+    - if current_user.present?
+      = form_for @photo, html_options: { class: "pure-form" } do |form|
+        - if @photo.errors.any?
+          div id="error_explanation"
+            h2
+              = "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being commented:"
+            ul
+            - @photo.errors.full_messages.each do |msg|
+              li = msg
+        fieldset.pure-group
+          = form.text_field :comment, class: "pure-input-rounded"
+          = form.hidden_field :remote_image_url
+          label.pure-button for="file"
+            | Choose Image
+          = form.submit "Submit Comment", class: "pure-button pure-button-primary"
+      div.progress_bar
+
+      = s3_uploader_form as: "photo[image_url]", id: "s3-uploader", class: "pure-form pure-form-stacked"
+        = file_field_tag :file
+
+      script id="template-upload" type="text/x-tmpl"
+        | <div id="file-{%=o.unique_id%}" class="upload">
+        |   {%=o.name%}
+        |   <div class="progress"><div class="bar" style="width: 0%"></div></div>
+        | </div>
+
+section.post-description
+  ul.nav-list
+    - @photos.each do |photo|
+      li.nav-item
+        - if photo.image_processing
+          = image_tag "animation_processing.gif"
+        - else
+          = image_tag photo.image.url(:normal)
+        br
+          p
+            = "by #{photo.user.name} at #{photo.created_at.to_s(:short)}"
+          p
+            em
+              = photo.comment.blank? ? "-" : photo.comment
+
+  p
+    = paginate @photos

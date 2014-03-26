@@ -14,6 +14,19 @@
 //= require jquery_ujs
 //= require s3_direct_upload
 //= require_tree .
+
 jQuery(function() {
-  return $("#s3-uploader").S3Uploader();
+  var s3_uploader = $("#s3-uploader");
+  var uploader = s3_uploader.S3Uploader({
+    progress_bar_target: $(".progress_bar"),
+  });
+
+  s3_uploader.bind("s3_uploads_start", function(e, content) {
+    $("#new_photo input[type=submit]").hide();
+  });
+
+  s3_uploader.bind("s3_upload_complete", function(e, content) {
+    $("#new_photo input[id=photo_remote_image_url]").val(content.url);
+    $("#new_photo input[type=submit]").show();
+  });
 });
