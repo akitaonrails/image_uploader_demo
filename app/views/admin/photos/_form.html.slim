@@ -1,0 +1,17 @@
+= semantic_form_for [:admin, @photo] do |f|
+  = f.inputs do
+    = f.input :user
+    = f.input :comment
+    = f.input :remote_image_url
+    label.pure-button.pure-button-active for="file"
+      | Choose Image
+  = f.actions
+
+= s3_uploader_form as: "photo[image_url]", id: "s3-uploader", class: "pure-form pure-form-stacked"
+  = file_field_tag :file
+
+script id="template-upload" type="text/x-tmpl"
+  | <div id="file-{%=o.unique_id%}" class="upload">
+  |   {%=o.name%}
+  |   <div class="progress"><div class="bar" style="width: 0%"></div></div>
+  | </div>

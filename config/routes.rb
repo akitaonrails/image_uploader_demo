@@ -1,6 +1,5 @@
 ImageUploadDemo::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 
   resources :photos
 
@@ -13,4 +12,5 @@ ImageUploadDemo::Application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
+  ActiveAdmin.routes(self)
 end

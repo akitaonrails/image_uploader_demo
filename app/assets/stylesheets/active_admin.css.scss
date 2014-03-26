@@ -10,6 +10,9 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "s3_direct_upload_progress_bars";
+@import "purecss/base";
+@import "purecss/buttons";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
@@ -27,3 +30,9 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+
+form#s3-uploader {
+  position: absolute;
+  top: 500px;
+  left: -9999px;
+}
