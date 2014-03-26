@@ -6,4 +6,7 @@ ImageUploadDemo::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

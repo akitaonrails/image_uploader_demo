@@ -5,8 +5,12 @@ describe ImageUploader do
 
   before do
     ImageUploader.enable_processing = true
-    @uploader = ImageUploader.new(create(:photo), :image)
-    @uploader.store!(File.open(Rails.root.join("app/assets/images/rails.png")))
+    @photo = Photo.new.tap do |photo|
+      photo.process_image_upload = true
+      photo.attributes = attributes_for(:photo)
+      photo.save
+    end
+    @uploader = @photo.image
   end
 
   after do

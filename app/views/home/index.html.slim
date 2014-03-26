@@ -9,7 +9,10 @@ section.post-description
   ul.nav-list
     - @photos.each do |photo|
       li.nav-item
-        = image_tag photo.image.url(:normal)
+        - if photo.image_processing
+          = image_tag "animation_processing.gif"
+        - else
+          = image_tag photo.image.url(:normal)
         br
           = "by #{photo.user.name} at #{photo.created_at.to_s(:short)}"
 
