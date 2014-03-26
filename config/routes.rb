@@ -1,4 +1,7 @@
 ImageUploadDemo::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :photos
 
   authenticated :user do
@@ -6,6 +9,7 @@ ImageUploadDemo::Application.routes.draw do
   end
   root :to => "photos#index"
   devise_for :users
+  ActiveAdmin.routes(self)
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'

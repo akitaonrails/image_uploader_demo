@@ -7,6 +7,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'devise'
 gem 'figaro'
 gem 'slim-rails'
@@ -21,6 +22,7 @@ gem 's3_direct_upload'
 gem 'dotenv-rails'
 gem 'mini_magick'
 gem 'kaminari'
+gem 'activeadmin'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
