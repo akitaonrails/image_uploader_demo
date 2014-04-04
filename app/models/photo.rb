@@ -19,6 +19,6 @@ class Photo < ActiveRecord::Base
   end
 
   def process_async
-    ProcessImageWorker.perform_async(self.id, original_image_url) if original_image_url
+    ProcessImageWorker.perform_async(self.id, original_image_url) if original_image_url and image_processing
   end
 end
